@@ -1,0 +1,35 @@
+.bg-image {
+  width: 100%;
+  height: 100vh;
+  background: url('../../public/assets/images/bg-image.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .location-carousel {
+    display: flex;
+    gap: 1rem;
+    .location {
+      cursor: pointer;
+      &:hover {
+        transform: scale(1.4);
+      }
+    }
+  }
+
+  .lc-1 {
+    position: absolute;
+    top: 30%;
+    left: 10%;
+  }
+
+  .lc-2 {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+  }
+}

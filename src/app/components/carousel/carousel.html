@@ -1,0 +1,26 @@
+<div #carousel class="carousel-component">
+  <div class="img-part">
+    <img #image src="./assets/images/carousel/meerut/meerute1.png" alt="" />
+    <img #image src="./assets/images/carousel/meerut/meerute2.png" alt="" />
+    <img #image src="./assets/images/carousel/meerut/meerute3.png" alt="" />
+    <img #image src="./assets/images/carousel/meerut/meerute4.png" alt="" />
+    <img #image src="./assets/images/carousel/meerut/meerute5.png" alt="" />
+    <button #prev class="prev"><i class="ri-arrow-left-s-line"></i></button>
+    <button #next class="next"><i class="ri-arrow-right-s-line"></i></button>
+  </div>
+
+  <div class="dots-component">
+    <div #dot class="dot"><i class="ri-checkbox-blank-circle-fill"></i></div>
+    <div #dot class="dot"><i class="ri-checkbox-blank-circle-fill"></i></div>
+    <div #dot class="dot"><i class="ri-checkbox-blank-circle-fill"></i></div>
+    <div #dot class="dot"><i class="ri-checkbox-blank-circle-fill"></i></div>
+    <div #dot class="dot"><i class="ri-checkbox-blank-circle-fill"></i></div>
+  </div>
+
+  <div class="text-part">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam autem sapiente fugit delectus ad.
+    Eos ducimus nam dolorem similique voluptatum?
+  </div>
+
+  <div #close_btn class="close-btn" (click)="onClose()"><i class="ri-close-line"></i></div>
+</div>

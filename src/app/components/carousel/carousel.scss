@@ -1,0 +1,102 @@
+.carousel-component {
+  position: absolute;
+  width: 300px;
+  background-color: white;
+  padding: 0.5rem;
+  border: 1px solid black;
+  .img-part {
+    position: relative;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 0.5rem;
+    border-radius: 10px;
+    padding: 0.5rem;
+    width: 280px;
+    height: 180px;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      border-radius: 10px;
+      transition: transform 0.5s ease;
+    }
+
+    .prev {
+      position: absolute;
+      top: 50%;
+      left: 1rem;
+      transform: translateY(-50%);
+      background: transparent;
+      color: white;
+      border: none;
+      width: max-content;
+      height: max-content;
+
+      cursor: pointer;
+      border: 2px solid white;
+      border-radius: 50%;
+
+      i {
+        font-size: 2rem;
+      }
+    }
+    .next {
+      position: absolute;
+      top: 50%;
+      right: 1rem;
+      transform: translateY(-50%);
+      background: transparent;
+      color: white;
+      border: 2px solid white;
+      border-radius: 50%;
+      width: max-content;
+      height: max-content;
+
+      cursor: pointer;
+
+      i {
+        font-size: 2rem;
+      }
+    }
+  }
+
+  .dots-component {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 0.5rem;
+    justify-content: center;
+
+    .dot {
+      i {
+        font-size: 0.5rem;
+        border: 0.1rem solid #ffb42a;
+        border-radius: 50%;
+      }
+    }
+  }
+
+  .text-part {
+    font-family: sans-serif;
+    text-align: justify;
+    padding: 0.5rem;
+    font-size: 0.8rem;
+  }
+
+  .close-btn {
+    width: max-content;
+    height: max-content;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(40%, -40%);
+    cursor: pointer;
+
+    i {
+      background-color: #ffb42a;
+      color: white;
+      border-radius: 50%;
+      overflow: hidden;
+      font-size: 1.5rem;
+    }
+  }
+}
