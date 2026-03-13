@@ -3,12 +3,12 @@ import {
   Component,
   ElementRef,
   Input,
-  input,
   output,
   QueryList,
+  signal,
   ViewChild,
-  viewChildren,
   ViewChildren,
+  WritableSignal,
 } from '@angular/core';
 
 @Component({
@@ -26,13 +26,11 @@ export class Carousel implements AfterViewInit {
   @ViewChild('close_btn') close_btn!: ElementRef<HTMLDivElement>;
   @ViewChild('carousel') carousel!: ElementRef<HTMLDivElement>;
 
-  @Input() showCarousel!: boolean;
+  @Input() showCarousel!: WritableSignal<number | null>;
   index = 0;
-  closeCarousel = output<boolean>();
 
   onClose() {
-    this.showCarousel = false;
-    this.closeCarousel.emit(this.showCarousel);
+    this.showCarousel.set(null);
   }
 
   ngAfterViewInit() {

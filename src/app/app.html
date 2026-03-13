@@ -1,18 +1,77 @@
 <div class="bg-image">
   <div class="location-carousel lc-1">
     <div class="location">
-      <app-location (displayCarousel)="onDisplayCarousel($event)"></app-location>
+      <app-location [id]="1" [showCarousel]="showCarousel"></app-location>
     </div>
-    <div #carousel class="carousel">
-      <app-carousel (closeCarousel)="onDisplayCarousel($event)" />
-    </div>
+    @if (showCarousel() === 1) {
+      <div class="carousel">
+        <app-carousel [showCarousel]="showCarousel" />
+      </div>
+    }
   </div>
   <div class="location-carousel lc-2">
     <div class="location">
-      <app-location (displayCarousel)="onDisplayCarousel($event)"></app-location>
+      <app-location [id]="2" [showCarousel]="showCarousel"></app-location>
     </div>
-    <div #carousel class="carousel">
-      <app-carousel (closeCarousel)="onDisplayCarousel($event)" />
+    @if (showCarousel() === 2) {
+      <div class="carousel">
+        <app-carousel [showCarousel]="showCarousel" />
+      </div>
+    }
+  </div>
+
+  <div class="location-carousel lc-3">
+    <div class="location">
+      <app-location [id]="3" [showCarousel]="showCarousel"></app-location>
     </div>
+    @if (showCarousel() === 3) {
+      <div class="carousel">
+        <app-carousel [showCarousel]="showCarousel" />
+      </div>
+    }
+  </div>
+
+  <div class="location-carousel lc-4">
+    <div class="location">
+      <app-location [id]="4" [showCarousel]="showCarousel"></app-location>
+    </div>
+    @if (showCarousel() === 4) {
+      <div class="carousel">
+        <app-carousel [showCarousel]="showCarousel" />
+      </div>
+    }
+  </div>
+
+  <div class="location-carousel lc-5">
+    <div class="location">
+      <app-location [id]="5" [showCarousel]="showCarousel"></app-location>
+    </div>
+    @if (showCarousel() === 5) {
+      <div class="carousel">
+        <app-carousel [showCarousel]="showCarousel" />
+      </div>
+    }
+  </div>
+
+  <div class="location-carousel lc-6">
+    <div class="location">
+      <app-location [id]="6" [showCarousel]="showCarousel"></app-location>
+    </div>
+    @if (showCarousel() === 6) {
+      <div class="carousel">
+        <app-carousel [showCarousel]="showCarousel" />
+      </div>
+    }
+  </div>
+
+  <div class="location-carousel lc-7">
+    <div class="location">
+      <app-location [id]="7" [showCarousel]="showCarousel"></app-location>
+    </div>
+    @if (showCarousel() === 7) {
+      <div class="carousel">
+        <app-carousel [showCarousel]="showCarousel" />
+      </div>
+    }
   </div>
 </div>

@@ -12,6 +12,8 @@
 
   .location-carousel {
     display: flex;
+    align-items: stretch;
+
     gap: 1rem;
     .location {
       cursor: pointer;
@@ -23,13 +25,13 @@
 
   .lc-1 {
     position: absolute;
-    top: 30%;
-    left: 10%;
+    top: 42%;
+    left: 11.5%;
   }
 
   .lc-2 {
     position: absolute;
-    top: 30%;
-    left: 50%;
+    top: 39%;
+    left: 31.5%;
   }
 }

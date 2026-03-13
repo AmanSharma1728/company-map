@@ -1,4 +1,4 @@
-import { Component, output } from '@angular/core';
+import { Component, Input, output, WritableSignal } from '@angular/core';
 
 @Component({
   selector: 'app-location',
@@ -7,11 +7,10 @@ import { Component, output } from '@angular/core';
   styleUrl: './location.scss',
 })
 export class Location {
-  showCarousel = false;
-  displayCarousel = output<boolean>();
+  @Input() showCarousel!: WritableSignal<number | null>;
+  @Input() id!: number;
 
-  toggleCarousel() {
-    this.showCarousel = !this.showCarousel;
-    this.displayCarousel.emit(this.showCarousel);
+  open() {
+    this.showCarousel.set(this.id);
   }
 }
