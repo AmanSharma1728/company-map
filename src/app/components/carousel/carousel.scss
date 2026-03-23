@@ -1,124 +1,143 @@
 .carousel-component {
-  position: absolute;
-  width: 300px;
+  position: relative;
+  width: 340px;
   background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
-  border-radius: 10px;
+  @media (max-width: 500px) {
+    width: 280px;
+  }
+
+  @media (max-width: 320px) {
+    width: 220px;
+  }
 
   .img-part {
     position: relative;
-    display: flex;
-    flex-wrap: nowrap;
-    gap: 0.5rem;
-    border-radius: 10px;
-    padding: 0.5rem;
-    width: 100%;
-    height: 200px;
+    padding: 10px 8px 0 8px;
+    height: 230px;
     overflow: hidden;
 
-    img {
-      width: 100%;
-      border-radius: 10px;
-    }
+    .track {
+      display: flex;
+      height: 100%;
+      transition: transform 1s cubic-bezier(0.25, 1, 0.5, 1);
+      gap: 16px; // THE GAP is back!
 
-    .prev {
-      position: absolute;
-      top: 50%;
-      left: 1rem;
-
-      background: transparent;
-      color: white;
-      border: none;
-      width: max-content;
-      height: max-content;
-
-      cursor: pointer;
-      border: 2px solid white;
-      border-radius: 50%;
-
-      i {
-        font-size: 2rem;
+      img {
+        flex: 0 0 100%;
+        width: 100%;
+        object-fit: cover;
+        border-radius: 8px;
       }
     }
-    .next {
+
+    .nav-btn {
       position: absolute;
       top: 50%;
-      right: 1rem;
       transform: translateY(-50%);
       background: transparent;
       color: white;
-      border: 2px solid white;
+      border: 1.5px solid white;
       border-radius: 50%;
-      width: max-content;
-      height: max-content;
-
+      width: 36px;
+      height: 36px;
       cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 5;
+      transition: background 0.2s ease;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.2);
+      }
 
       i {
-        font-size: 2rem;
+        font-size: 1.6rem;
+      }
+      &.prev {
+        left: 20px;
+      }
+      &.next {
+        right: 20px;
       }
     }
   }
 
-  .dots-component {
+  .dots-container {
     display: flex;
-    flex-wrap: nowrap;
-    gap: 0.5rem;
     justify-content: center;
+    gap: 10px;
+    margin: 16px 0; // Distinct vertical gap between the image and the text
 
     .dot {
-      i {
-        font-size: 0.5rem;
-        border: 0.1rem solid #ffb42a;
-        border-radius: 50%;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      border: 1.5px solid #ffb42a; // Hollow orange border
+      background-color: transparent;
+      transition: background-color 0.3s ease;
+
+      &.active {
+        background-color: #ffb42a; // Solid orange for the active dot
       }
     }
   }
 
   .text-part {
-    font-family: sans-serif;
-    padding: 0.5rem;
+    padding: 0 12px 12px 12px;
     font-size: 0.8rem;
-    display: flex;
-    flex-direction: column;
+
+    &.active {
+      padding-top: 12px;
+    }
 
     .row {
-      font-weight: 500;
       display: flex;
-      justify-content: start;
-      gap: 1rem;
-      padding-bottom: 0.25rem;
-      border-bottom: 1px solid grey;
-      margin-bottom: 0.25rem;
+      padding: 5px 0;
+      border-bottom: 1px solid #f0f0f0;
+
       .rh {
-        color: black;
-        flex: 0 0 4rem;
+        color: #222;
+        font-weight: 600;
+        flex: 0 0 90px;
       }
       .rd {
-        color: grey;
-        flex: 1 1 auto;
+        color: #666;
+        flex: 1;
+        font-weight: 600;
+        line-height: 1.4;
       }
-    }
-    #highlights {
-      border: none;
+      &.no-border,
+      &:last-child {
+        border: none;
+      }
     }
   }
 
   .close-btn {
-    width: max-content;
-    height: max-content;
     position: absolute;
-    top: 0;
-    right: 0;
-    transform: translate(40%, -40%);
+    top: -12px;
+    right: -12px; // Perfectly overlaps the top right corner
     cursor: pointer;
+    z-index: 10;
+
+    // Moved the circle styling to the div container for a cleaner look
+    background-color: #ffb42a;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 
     i {
-      background-color: #ffb42a;
       color: white;
-      border-radius: 50%;
-      overflow: hidden;
-      font-size: 1.5rem;
+      font-size: 1.4rem;
     }
   }
 }

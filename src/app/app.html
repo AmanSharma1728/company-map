@@ -1,77 +1,50 @@
 <div class="bg-image">
-  <div class="location-carousel lc-1">
-    <div class="location">
-      <app-location [id]="1" [showCarousel]="showCarousel"></app-location>
+  <div class="heading">Our Footprint</div>
+
+  @for (loc of locations; track loc.id) {
+    <div [class]="'location-carousel lc-' + loc.id">
+      <div class="location">
+        <app-location [id]="loc.id" [showCarousel]="showCarousel"></app-location>
+      </div>
     </div>
-    @if (showCarousel() === 1) {
-      <div class="carousel">
-        <app-carousel [showCarousel]="showCarousel" />
+
+    @if (showCarousel() === loc.id) {
+      <div [class]="'carousel c-' + loc.id">
+        <app-carousel
+          [images]="loc.images"
+          [location]="loc.location"
+          [showCarousel]="showCarousel"
+          [type]="loc.type"
+          [highlight]="loc.highlight"
+          [capacity]="loc.capacity"
+        />
       </div>
     }
-  </div>
-  <div class="location-carousel lc-2">
-    <div class="location">
-      <app-location [id]="2" [showCarousel]="showCarousel"></app-location>
-    </div>
-    @if (showCarousel() === 2) {
-      <div class="carousel">
-        <app-carousel [showCarousel]="showCarousel" />
+  }
+
+  <div class="legend">
+    <div class="legend-1">
+      <div class="icon">
+        <img
+          src="https://zarthi.com/assets/CompanyPageAssets/OurFootPrint/loactionIcon.svg"
+          alt="location icon"
+        />
       </div>
-    }
+      <div class="text">Our Talent</div>
+    </div>
+
+    <div class="legend-2">
+      <div class="icon"></div>
+      <div class="text">
+        <div class="line-1">Our Relationships</div>
+        <div class="line-2">(Customers,Partners & Providers)</div>
+      </div>
+    </div>
   </div>
 
-  <div class="location-carousel lc-3">
-    <div class="location">
-      <app-location [id]="3" [showCarousel]="showCarousel"></app-location>
-    </div>
-    @if (showCarousel() === 3) {
-      <div class="carousel">
-        <app-carousel [showCarousel]="showCarousel" />
-      </div>
-    }
-  </div>
-
-  <div class="location-carousel lc-4">
-    <div class="location">
-      <app-location [id]="4" [showCarousel]="showCarousel"></app-location>
-    </div>
-    @if (showCarousel() === 4) {
-      <div class="carousel">
-        <app-carousel [showCarousel]="showCarousel" />
-      </div>
-    }
-  </div>
-
-  <div class="location-carousel lc-5">
-    <div class="location">
-      <app-location [id]="5" [showCarousel]="showCarousel"></app-location>
-    </div>
-    @if (showCarousel() === 5) {
-      <div class="carousel">
-        <app-carousel [showCarousel]="showCarousel" />
-      </div>
-    }
-  </div>
-
-  <div class="location-carousel lc-6">
-    <div class="location">
-      <app-location [id]="6" [showCarousel]="showCarousel"></app-location>
-    </div>
-    @if (showCarousel() === 6) {
-      <div class="carousel">
-        <app-carousel [showCarousel]="showCarousel" />
-      </div>
-    }
-  </div>
-
-  <div class="location-carousel lc-7">
-    <div class="location">
-      <app-location [id]="7" [showCarousel]="showCarousel"></app-location>
-    </div>
-    @if (showCarousel() === 7) {
-      <div class="carousel">
-        <app-carousel [showCarousel]="showCarousel" />
-      </div>
+  <div class="location-legend">
+    @for (loc of locations; track loc.id) {
+      <app-location-capsule [showCarousel]="showCarousel" [id]="loc.id" [location]="loc.location" />
     }
   </div>
 </div>

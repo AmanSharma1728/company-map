@@ -1,88 +1,34 @@
-import {
-  AfterViewInit,
-  Component,
-  ElementRef,
-  Input,
-  output,
-  QueryList,
-  signal,
-  ViewChild,
-  ViewChildren,
-  WritableSignal,
-} from '@angular/core';
+import { Component, input, Input, WritableSignal } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-carousel',
-  imports: [],
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './carousel.html',
   styleUrl: './carousel.scss',
 })
-export class Carousel implements AfterViewInit {
-  @ViewChildren('image') image_array!: QueryList<ElementRef<HTMLImageElement>>;
-  @ViewChildren('dot') dots_array!: QueryList<ElementRef<HTMLDivElement>>;
-  @ViewChild('prev')
-  prev!: ElementRef<HTMLButtonElement>;
-  @ViewChild('next') next!: ElementRef<HTMLButtonElement>;
-  @ViewChild('close_btn') close_btn!: ElementRef<HTMLDivElement>;
-  @ViewChild('carousel') carousel!: ElementRef<HTMLDivElement>;
-
+export class Carousel {
   @Input() showCarousel!: WritableSignal<number | null>;
+  @Input() images!: Array<string>;
+  @Input() location!: string;
+  @Input() capacity!: string;
+  @Input() highlight!: string;
+  @Input() type!: string;
+
   index = 0;
 
   onClose() {
     this.showCarousel.set(null);
   }
 
-  ngAfterViewInit() {
-    for (let img of this.image_array) {
-      img.nativeElement.style.display = 'none';
-    }
+  onNext() {
+    // Increment index and loop if at the end
+    this.index = (this.index + 1) % this.images.length;
+  }
 
-    for (let dot of this.dots_array) {
-      dot.nativeElement.style.color = 'white';
-    }
-
-    this.image_array.get(0)!.nativeElement.style.display = 'block';
-    this.dots_array.get(0)!.nativeElement.style.color = '#ffb42a';
-
-    this.prev.nativeElement.addEventListener('click', () => {
-      if (this.index === 0) {
-        this.image_array.get(this.index)!.nativeElement.style.display = 'none';
-        this.dots_array.get(this.index)!.nativeElement.style.color = 'white';
-        this.index = this.image_array.length - 1;
-        this.image_array.get(this.index)!.nativeElement.style.display = 'block';
-        this.dots_array.get(this.index)!.nativeElement.style.color = '#ffb42a';
-        return;
-      }
-
-      this.image_array.get(this.index)!.nativeElement.style.display = 'none';
-      this.dots_array.get(this.index)!.nativeElement.style.color = 'white';
-      if (this.index > 0 && this.index < this.image_array.length) {
-        this.index--;
-      }
-      this.image_array.get(this.index)!.nativeElement.style.display = 'block';
-      this.dots_array.get(this.index)!.nativeElement.style.color = '#ffb42a';
-    });
-
-    this.next.nativeElement.addEventListener('click', () => {
-      if (this.index === this.image_array.length - 1) {
-        this.image_array.get(this.index)!.nativeElement.style.display = 'none';
-        this.dots_array.get(this.index)!.nativeElement.style.color = 'white';
-        this.index = 0;
-        this.image_array.get(this.index)!.nativeElement.style.display = 'block';
-        this.dots_array.get(this.index)!.nativeElement.style.color = '#ffb42a';
-        return;
-      }
-
-      this.image_array.get(this.index)!.nativeElement.style.display = 'none';
-      this.dots_array.get(this.index)!.nativeElement.style.color = 'white';
-
-      if (this.index >= 0 && this.index < this.image_array.length - 1) {
-        this.index++;
-      }
-
-      this.image_array.get(this.index)!.nativeElement.style.display = 'block';
-      this.dots_array.get(this.index)!.nativeElement.style.color = '#ffb42a';
-    });
+  onPrev() {
+    // Decrement index and loop to end if at the start
+    this.index = (this.index - 1 + this.images.length) % this.images.length;
   }
 }

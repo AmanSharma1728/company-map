@@ -1,0 +1,12 @@
+.capsule {
+  color: white;
+  box-shadow: 0 2px 4px #ffb42a66;
+  padding: 0.3rem 0.6rem;
+  border-radius: 200px;
+  cursor: pointer;
+
+  @media (min-width: 768px) {
+    padding: 0.5rem 3rem;
+    font-size: 1.2rem;
+  }
+}

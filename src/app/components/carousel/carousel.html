@@ -1,43 +1,47 @@
-<div #carousel class="carousel-component">
-  <div class="img-part">
-    <img #image src="./assets/images/carousel/meerut/meerute1.png" alt="" />
-    <img #image src="./assets/images/carousel/meerut/meerute2.png" alt="" />
-    <img #image src="./assets/images/carousel/meerut/meerute3.png" alt="" />
-    <img #image src="./assets/images/carousel/meerut/meerute4.png" alt="" />
-    <img #image src="./assets/images/carousel/meerut/meerute5.png" alt="" />
-    <button #prev class="prev"><i class="ri-arrow-left-s-line"></i></button>
-    <button #next class="next"><i class="ri-arrow-right-s-line"></i></button>
-  </div>
+<div class="carousel-component">
+  @if (images.length) {
+    <div class="img-part">
+      <div
+        #track
+        class="track"
+        [style.transform]="'translateX(calc(-' + index * 100 + '% - ' + index * 16 + 'px))'"
+      >
+        @for (image of images; let idx = $index; track idx) {
+          <img [src]="images[idx]" [alt]="`Slide ${idx + 1}`" />
+        }
+      </div>
 
-  <div class="dots-component">
-    <div #dot class="dot"><i class="ri-checkbox-blank-circle-fill"></i></div>
-    <div #dot class="dot"><i class="ri-checkbox-blank-circle-fill"></i></div>
-    <div #dot class="dot"><i class="ri-checkbox-blank-circle-fill"></i></div>
-    <div #dot class="dot"><i class="ri-checkbox-blank-circle-fill"></i></div>
-    <div #dot class="dot"><i class="ri-checkbox-blank-circle-fill"></i></div>
-  </div>
+      <button class="nav-btn prev" (click)="onPrev()"><i class="ri-arrow-left-s-line"></i></button>
+      <button class="nav-btn next" (click)="onNext()"><i class="ri-arrow-right-s-line"></i></button>
+    </div>
 
-  <div class="text-part">
+    <div class="dots-container">
+      @for (image of images; let idx = $index; track idx) {
+        <span class="dot" [class.active]="idx === index"></span>
+      }
+    </div>
+  }
+
+  <div class="text-part" [class.active]="images.length === 0">
     <div class="row">
       <div class="rh">Location</div>
-      <div class="rd">Meerut</div>
+      <div class="rd">{{ location | titlecase }}</div>
     </div>
     <div class="row">
       <div class="rh">Type</div>
-      <div class="rd">Satellite Office (North India)</div>
+      <div class="rd">{{ type | titlecase }}</div>
     </div>
     <div class="row">
       <div class="rh">Capacity</div>
-      <div class="rd">25-30 Sarthis</div>
+      <div class="rd">{{ capacity }} Sarthis</div>
     </div>
-    <div class="row" id="highlights">
+    <div class="row no-border">
       <div class="rh">Highlights</div>
       <div class="rd">
-        Located right on the National Highway, this office has sprawling, lush green field for
-        Sarthis to work hard and play hard.
+        {{ highlight }}
       </div>
     </div>
   </div>
 
-  <div #close_btn class="close-btn" (click)="onClose()"><i class="ri-close-line"></i></div>
+  <div class="close-btn" (click)="onClose()"><i class="ri-close-line"></i></div>
 </div>
