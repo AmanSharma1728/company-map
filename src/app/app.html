@@ -2,10 +2,8 @@
   <div class="heading">Our Footprint</div>
 
   @for (loc of locations; track loc.id) {
-    <div [class]="'location-carousel lc-' + loc.id">
-      <div class="location">
-        <app-location [id]="loc.id" [showCarousel]="showCarousel"></app-location>
-      </div>
+    <div [class]="'loc-' + loc.id">
+      <app-location [id]="loc.id" [showCarousel]="showCarousel"></app-location>
     </div>
 
     @if (showCarousel() === loc.id) {

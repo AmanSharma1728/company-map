@@ -1,5 +1,17 @@
-.location-component {
-  img {
-    width: 45%;
+img {
+  width: 20px;
+
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  &.headquarter {
+    width: 25px;
+  }
+
+  @media (max-width: 1023px) {
+    display: none;
   }
 }

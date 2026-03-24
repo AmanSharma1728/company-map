@@ -1,3 +1,7 @@
-<div (mouseenter)="open()" class="location-component">
-  <img src="https://zarthi.com/assets/CompanyPageAssets/OurFootPrint/loactionIcon.svg" alt="" />
-</div>
+<img
+  (mouseenter)="open()"
+  [class.headquarter]="id === 4"
+  [style.border]=""
+  src="https://zarthi.com/assets/CompanyPageAssets/OurFootPrint/loactionIcon.svg"
+  alt=""
+/>
