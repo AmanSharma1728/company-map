@@ -7,7 +7,7 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
   @media (max-width: 500px) {
-    width: 280px;
+    width: 220px;
   }
 
   @media (max-width: 320px) {
@@ -19,6 +19,10 @@
     padding: 10px 8px 0 8px;
     height: 230px;
     overflow: hidden;
+
+    @media (max-width: 500px) {
+      height: 140px;
+    }
 
     .track {
       display: flex;
@@ -73,6 +77,10 @@
     gap: 10px;
     margin: 16px 0; // Distinct vertical gap between the image and the text
 
+    @media (max-width: 500px) {
+      margin: 8px 0;
+    }
+
     .dot {
       width: 12px;
       height: 12px;
@@ -80,6 +88,11 @@
       border: 1.5px solid #ffb42a; // Hollow orange border
       background-color: transparent;
       transition: background-color 0.3s ease;
+
+      @media (max-width: 500px) {
+        width: 10px;
+        height: 10px;
+      }
 
       &.active {
         background-color: #ffb42a; // Solid orange for the active dot
@@ -91,6 +104,10 @@
     padding: 0 12px 12px 12px;
     font-size: 0.8rem;
 
+    @media (max-width: 500px) {
+      font-size: 0.65rem;
+    }
+
     &.active {
       padding-top: 12px;
     }
@@ -99,11 +116,12 @@
       display: flex;
       padding: 5px 0;
       border-bottom: 1px solid #f0f0f0;
+      gap: 0.5rem;
 
       .rh {
         color: #222;
         font-weight: 600;
-        flex: 0 0 90px;
+        flex: 0 0 4rem;
       }
       .rd {
         color: #666;
