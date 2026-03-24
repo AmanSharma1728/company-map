@@ -375,5 +375,29 @@
       left: 3.5rem;
       right: 3rem;
     }
+
+    @media (max-width: 450px) {
+      position: absolute;
+      top: 4.5rem;
+      left: 4rem;
+    }
+
+    @media (max-width: 400px) {
+      position: absolute;
+      top: 4.5rem;
+      left: 3.2rem;
+    }
+
+    @media (max-width: 360px) {
+      position: absolute;
+      top: 4.5rem;
+      left: 2.5rem;
+    }
+
+    @media (max-width: 320px) {
+      position: absolute;
+      top: 4.5rem;
+      left: 3rem;
+    }
   }
 }
