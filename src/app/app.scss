@@ -106,10 +106,6 @@
     }
   }
 
-  .carousel {
-    z-index: 10000;
-  }
-
   .c-1 {
     position: absolute;
     top: 20%;
@@ -307,41 +303,12 @@
   }
 
   .carousel {
+    z-index: 10000;
     @media (max-width: 1023px) {
       position: absolute;
-      top: 5.5rem;
-      left: 15rem;
-    }
-
-    @media (max-width: 500px) {
-      position: absolute;
-      top: 4.5rem;
-      left: 3.5rem;
-      right: 3rem;
-    }
-
-    @media (max-width: 450px) {
-      position: absolute;
-      top: 3.8rem;
-      left: 6rem;
-    }
-
-    @media (max-width: 400px) {
-      position: absolute;
-      top: 3.8rem;
-      left: 5.5rem;
-    }
-
-    @media (max-width: 360px) {
-      position: absolute;
-      top: 3.5rem;
-      left: 4.5rem;
-    }
-
-    @media (max-width: 320px) {
-      position: absolute;
-      top: 3.8rem;
-      left: 3rem;
+      top: 11%;
+      left: 50%;
+      transform: translateX(-50%);
     }
   }
 }
