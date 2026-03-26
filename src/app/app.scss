@@ -306,6 +306,17 @@
     z-index: 10000;
     @media (max-width: 1023px) {
       position: absolute;
+      top: 20%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+
+  .c-3,
+  .c-4,
+  .c-6 {
+    @media (max-width: 1023px) {
+      position: absolute;
       top: 11%;
       left: 50%;
       transform: translateX(-50%);
